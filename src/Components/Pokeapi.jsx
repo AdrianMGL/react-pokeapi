@@ -3,11 +3,10 @@ import "../Styles/Pokeapi.css";
 import { useState, useEffect } from "react";
 
 function Pokeapi() {
+  const IndexPoke = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
-const IndexPoke = 'https://pokeapi.co/api/v2/pokemon/?limit=150'
-
-   const randomPokeapi = Math.floor(Math.random() * IndexPoke.length); // 5
-// console.log(randomPokeapi);
+  const randomPokeapi = Math.floor(Math.random() * IndexPoke.length); // 5
+  // console.log(randomPokeapi);
 
   // Paso 2: useState para recibir la respuesta
   const [pokemon, setPokemon] = useState({});
@@ -33,19 +32,17 @@ const IndexPoke = 'https://pokeapi.co/api/v2/pokemon/?limit=150'
     <div className="card__container">
       <div className="card">
         <div className="header">
-        <div className="name__type">
-          <h1 className="name">{pokemon.name}</h1>
-          <h3 className="type__name"> {pokemon.types?.[0].type.name}</h3>
-        </div>
-          <h3>{pokemon.id}</h3>
+          <div className="name__type">
+            <h1 className="name">{pokemon.name}</h1>
+            <h3 className="type__name"> {pokemon.types?.[0].type.name}</h3>
+          </div>
+          <h3 className="id">{pokemon.id}</h3>
         </div>
         <div className="content">
           <ul>
             <li>
               <h3>Abilities:</h3>
-              <h4>
-                {pokemon.abilities?.[0].ability.name}
-              </h4>
+              <h4>{pokemon.abilities?.[0].ability.name}</h4>
             </li>
 
             <li>
